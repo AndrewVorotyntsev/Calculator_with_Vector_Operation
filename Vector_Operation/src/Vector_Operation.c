@@ -53,6 +53,7 @@ int algebra() //Задаем операции с вещественными чи
                 printf(" Answer=%f", factorial(a));
                 break;
         }
+    return EXIT_SUCCESS;
 }
 
 
@@ -62,8 +63,8 @@ int vectors() // Задаем векторные операции
     printf("Write size of vectors");
     scanf("%i", &i ); // Вводим длинну векторов
     float *A , *B ,e ,d;
-    if (A != NULL) A = malloc(i*sizeof(float));
-    if (B != NULL) B = malloc(i*sizeof(float));
+    A = calloc(i,sizeof(float));
+    B = calloc(i,sizeof(float));
     printf("Write first vector");
     for (int k=0;k<i;k++)          //Вводим вектора
         scanf("%f", &A[k]);
@@ -92,6 +93,9 @@ int vectors() // Задаем векторные операции
                 printf("_%f", e);
                 break;
         }
+    free(A);
+    free(B);
+    return EXIT_SUCCESS;
 }
 
 
